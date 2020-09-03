@@ -18,7 +18,6 @@ sum2([1, 1, 1, 1]) → 2
             return 0;
         if (nums.length == 1)
             return nums[0];
-        System.out.println("length = " + nums.length);
         return nums[0] + nums[1];
     }
 
@@ -31,8 +30,9 @@ sum2([1, 1, 1, 1]) → 2
     //Given an array of ints, return a new array length 2 containing the first and last
     // elements from the original array. The original array will be length 1 or more.
     public int[] makeEnds(int[] nums) {
-        int[] arr = {nums[0], nums[nums.length - 1]};
-        return arr;
+        if (nums.length < 2)
+            return nums;
+        return new int[]{nums[0], nums[nums.length - 1]};
     }
 
     //Given an int array length 2, return true if it contains a 2 or 3.
@@ -73,10 +73,6 @@ sum2([1, 1, 1, 1]) → 2
         if (nums.length < 2)
             return false;
         return nums[0] == nums[1];
-
-        //if (nums.length == 2 && nums[0] == nums[1])
-        //            return true;
-        //        return false;
     }
     //Given an int array length 3, if there is a 2 in the array immediately followed by a 3,
     // set the 3 element to 0. Return the changed array.
@@ -98,11 +94,14 @@ sum2([1, 1, 1, 1]) → 2
     //start1([7, 2, 3], [1]) → 1
     //start1([1, 2], []) → 1
 
-    public int start1(int[] a, int[] b) {
-        if (a[0] == 1 || b[0] == 1)
-            return 1;
+    public static int start1(int[] a, int[] b) {
+
         if (a[0] == 1 && b[0] == 1)
             return 2;
+        if (a[0] == 1)
+            return 1;
+        if (b[0] == 1)
+            return 1;
         return 0;
     }
     //Given 2 int arrays, a and b, return a new array length 2 containing, as much as will fit, the elements from
@@ -142,7 +141,7 @@ sum2([1, 1, 1, 1]) → 2
         String ln = "1";
         for (int i = 0; i <= 3; i++) {
             System.out.print(ln + " x ");
-            ln += leftNums.toString()+(leftNums*10);
+            ln += leftNums.toString() + (leftNums * 10);
             System.out.println(multtBy + " + " + add);
             add++;
 
@@ -153,7 +152,8 @@ sum2([1, 1, 1, 1]) → 2
         //System.out.println(sum2(new int[]{19}));
         //System.out.println(Arrays.toString(middleWay(new int[]{1, 2, 3}, new int[]{4, 5, 6})));
 //        System.out.println((double23(new int[]{})));
+//        System.out.println(start1(new int[]{13, 3, 4, 5}, new int[]{1, 3, 4, 5}));
 //
-        forFun();
+        //forFun();
     }
 }

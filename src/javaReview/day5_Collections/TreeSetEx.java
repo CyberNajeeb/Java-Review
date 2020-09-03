@@ -1,11 +1,12 @@
 package javaReview.day5_Collections;
 
+import java.util.Set;
 import java.util.TreeSet;
 
 public class TreeSetEx {
     public static void main(String[] args) {
 
-        TreeSet<String> set = new TreeSet<>();
+        Set<String> set = new TreeSet<>();
         set.add("z");
         set.add("Y");
         //set.add(null);
